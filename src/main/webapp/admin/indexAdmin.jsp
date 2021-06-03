@@ -13,5 +13,7 @@
 <body>
 
 <h1>hello Admin</h1>
+
+<h2><a href="/admin?action=listUser">Danh sách</a></h2>
 </body>
 </html>
