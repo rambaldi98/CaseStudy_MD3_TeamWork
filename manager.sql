@@ -1,5 +1,5 @@
-create database IF NOT EXISTS centermanager;
-use centermanager;
+create database IF NOT EXISTS manager_teaching_center;
+use manager_teaching_center;
 
 create table role(
     id int primary key auto_increment,
