@@ -19,13 +19,17 @@
 <body>
 
 <h1>Sửa thông tin hoc sinh</h1>
+
 <h3><a href="admin/indexAdmin.jsp">Quay lại</a></h3>
+
+<h3><a href="/admin?action=listUser">Quay lại</a></h3>
+
 
 <c:if test='${requestScope["notification"] != null}'>
     <span class="notification">${requestScope["notification"]}</span>
 </c:if>
 
-<form  method="post">
+<form   method="post">
     <table>
         <tr>
             <td>Họ tên:</td>
@@ -74,7 +78,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Nhấn đê :v"></td>
+            <td><input type="submit" value="Nhấn đê sua"></td>
         </tr>
     </table>
 </form>

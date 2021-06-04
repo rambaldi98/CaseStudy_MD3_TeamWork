@@ -1,10 +1,11 @@
 package controller.admin;
 
 
+
 import model.subject.Subject;
+
 import model.user.Gender;
 import model.user.Role;
-
 import model.user.User;
 import service.adminjdbc.AdminService;
 import service.adminjdbc.IAdminService;
@@ -16,14 +17,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 import java.sql.PreparedStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
-
 import java.util.List;
 
 @WebServlet(name = "AdminServlet", urlPatterns = "/admin")
@@ -51,6 +50,9 @@ public class AdminServlet extends HttpServlet {
             case "deleteUser":
                 showFormDelete(request,response);
                 break;
+            default:
+                showIndexAdmin(request,response);
+                break;
 
             case "createSubject":
                 showFormCreateNewSubject(request,response);
@@ -59,11 +61,18 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
+
     private void showFormCreateNewSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/createSubject.jsp");
         dispatcher.forward(request,response);
 
 
+    }
+
+
+    private void showIndexAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/indexAdmin.jsp");
+        dispatcher.forward(request,response);
     }
 
 
@@ -85,6 +94,7 @@ public class AdminServlet extends HttpServlet {
     }
 
 
+
     private void showFormCreateUSer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         RequestDispatcher dispatcher=request.getRequestDispatcher("admin/createUser.jsp");
@@ -98,25 +108,22 @@ public class AdminServlet extends HttpServlet {
 
 
 
-
-
-
-
     private void showListUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = adminService.findAll();
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/listUser.jsp");
         request.setAttribute("userList",userList);
         dispatcher.forward(request,response);
+
     }
 
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String action = request.getParameter("action");
         try {
             switch (action){
+
             case "createUser":
                 createNewUser(request,response);
                 break;
@@ -132,6 +139,8 @@ public class AdminServlet extends HttpServlet {
                 case "createSubject":
                     createNewSubject(request,response);
                     break;
+
+
 
 
             }
@@ -178,12 +187,12 @@ public class AdminServlet extends HttpServlet {
 
         User user = new User(id,name,email,password,phone,dateOfBirth,address,gender,role);
 
-        this.adminService.update(id,user, request );
+        this.adminService.update(id,user, request);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/updateUser.jsp");
+
         request.setAttribute("notification","Sửa thông tin thành công");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/updateUser.jsp");
         dispatcher.forward(request,response);
-
 
 
     }

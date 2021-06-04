@@ -19,7 +19,7 @@
 <body>
 
 <h1>Xóa học viên</h1>
-<h3><a href="/student">Quay lại </a></h3>
+<h3><a href="/admin?action=listUser">Quay lại </a></h3>
 
 <h4>
     <c:if test='${requestScope["notification"] != null}'>
@@ -27,7 +27,7 @@
     </c:if>
 </h4>
 
-<form action="" method="post">
+<form  method="post">
     <h3>Bạn chắc chắn muốn xóa</h3>
     <fieldset>
         <table>

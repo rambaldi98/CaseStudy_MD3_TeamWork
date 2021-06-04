@@ -2,15 +2,12 @@ package service.adminjdbc;
 
 
 import model.subject.Subject;
+
 import model.user.Gender;
 import model.user.Role;
 import model.user.User;
 
 import javax.servlet.http.HttpServletRequest;
-
-import model.user.User;
-
-
 import java.util.List;
 
 public interface IAdminService {
@@ -18,7 +15,6 @@ public interface IAdminService {
     List<User> findAll();
 
     User findById(int id);
-
 
     void create(User user, HttpServletRequest request);
 
@@ -34,8 +30,8 @@ public interface IAdminService {
 
     Gender findGenderById(int id);
 
-    void createNewSubject(Subject subject);
 
+    void createNewSubject(Subject subject);
 
 
 
