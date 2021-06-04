@@ -63,7 +63,6 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) action = "";
-
         switch (action){
             case "listUser":
                 showListUser(request,response);
@@ -87,6 +86,7 @@ public class AdminServlet extends HttpServlet {
             case "createSubject":
                 showFormCreateNewSubject(request,response);
                 break;
+
         }
     }
 
@@ -170,6 +170,9 @@ public class AdminServlet extends HttpServlet {
                 case "createSubject":
                     createNewSubject(request,response);
                     break;
+
+
+
 
             }
         }
