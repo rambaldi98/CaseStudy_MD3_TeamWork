@@ -47,11 +47,11 @@
         <th>Họ tên</th>
         <th>Email</th>
         <th>Password</th>
-        <td>Số điện thoại</td>
-        <td>Ngày sinh</td>
-        <td>Địa chỉ</td>
-        <td>Giới tính</td>
-        <td>Vai trò</td>
+        <th>Số điện thoại</th>
+        <th>Ngày sinh</th>
+        <th>Địa chỉ</th>
+        <th>Giới tính</th>
+        <th>Vai trò</th>
         <th colspan="2">Action</th>
     </tr>
     <c:forEach items='${requestScope["userList"]}' var="u">

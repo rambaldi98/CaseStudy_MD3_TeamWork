@@ -189,8 +189,8 @@ public class AdminServlet extends HttpServlet {
 
         this.adminService.update(id,user, request);
 
-
-        request.setAttribute("notification","Sửa thông tin thành công");
+        request.setCharacterEncoding("UTF-8");
+        request.setAttribute("notification","done");
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/updateUser.jsp");
         dispatcher.forward(request,response);
 

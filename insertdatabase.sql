@@ -10,6 +10,8 @@ insert into role(name) value
 insert user (name,email,password,phone,dateofbirth,address,
                     gender_id,role_id) value ('haiii','adad','123456','11qsq','2000-10-10','asa',1,3);
 
+#  querry find user check user login
+select u.name as name, u.email as email, u.password as password, u.phone as phone , u.dateofbirth as dateofbirth,u.address as address , r.name as role, g.name as gender from user u join gender g on u.gender_id = g.id join role r on u.role_id = r.id where email = 'asdd' and password = '123';
 
 # tim kiem user theo id
 select * ,g.name as gender_name, r.name as role_name from user
