@@ -16,6 +16,8 @@
 
 <h2><a href="/admin?action=listUser">Danh sách</a></h2>
 
+
 <h2><a href="/admin?action=createUser">Them moi</a></h2>
+
 </body>
 </html>

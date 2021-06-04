@@ -1,7 +1,9 @@
 package controller.admin;
 
+
 import model.user.Gender;
 import model.user.Role;
+
 import model.user.User;
 import service.adminjdbc.AdminService;
 import service.adminjdbc.IAdminService;
@@ -13,12 +15,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 import java.sql.PreparedStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
+
 import java.util.List;
 
 @WebServlet(name = "AdminServlet", urlPatterns = "/admin")
@@ -35,6 +39,7 @@ public class AdminServlet extends HttpServlet {
                 showListUser(request,response);
                 break;
 
+
             case "createUser":
                 showFormCreateUSer(request,response);
                 break;
@@ -49,6 +54,8 @@ public class AdminServlet extends HttpServlet {
 
         }
     }
+
+
 
     private void showFormDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -66,28 +73,35 @@ public class AdminServlet extends HttpServlet {
         request.setAttribute("user",user);
         dispatcher.forward(request,response);
     }
+    private void showFormCreateUSer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        RequestDispatcher dispatcher=request.getRequestDispatcher("admin/createUser.jsp");
+        List<Role> roleList=adminService.selectAllRole();
+        List<Gender> genderList=adminService.selectAllGender();
+        request.setAttribute("roleList",roleList);
+        request.setAttribute("genderList",genderList);
+        dispatcher.forward(request,response);
+    }
+
+
+
+
+
+
+
 
     private void showListUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> userList = adminService.findAll();
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/listUser.jsp");
         request.setAttribute("userList",userList);
         dispatcher.forward(request,response);
-
     }
 
-    private void showFormCreateUSer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/createUser.jsp");
-        List<Role> roleList = adminService.selectAllRole();
-        List<Gender> genderList = adminService.selectAllGender();
-        request.setAttribute("roleList",roleList);
-        request.setAttribute("genderList",genderList);
-        dispatcher.forward(request,response);
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String action = request.getParameter("action");
         try {
             switch (action){

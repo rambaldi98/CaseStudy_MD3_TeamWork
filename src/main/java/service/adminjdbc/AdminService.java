@@ -7,12 +7,15 @@ import service.ConnectJDBC;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +25,7 @@ public class AdminService implements IAdminService{
     public static final String SELECT_ALL_USER = "select * , r.name as role_name,g.name as gender_name from user\n" +
             "join role r on r.id = user.role_id\n" +
             "join gender g on g.id = user.gender_id";
+
     public static final String SELECT_USER_BY_ID = "select * ,g.name as gender_name, r.name as role_name from user\n" +
             "join gender g on g.id = user.gender_id\n" +
             "join role r on r.id = user.role_id\n" +
@@ -33,6 +37,8 @@ public class AdminService implements IAdminService{
     public static final String DELETE_USER_BY_ID = "delete from  user where id = ?";
 
     Connection connection = ConnectJDBC.getConnection();
+
+
 
     @Override
     public List<User> findAll() {
@@ -70,6 +76,7 @@ public class AdminService implements IAdminService{
 
     @Override
     public User findById(int id) {
+
         User user = null;
         try {
             PreparedStatement statement = connection.prepareStatement(SELECT_USER_BY_ID);
@@ -123,11 +130,13 @@ public class AdminService implements IAdminService{
             throwables.printStackTrace();
         }
 
-
     }
+
+
 
     @Override
     public void delete(int id) {
+
 
         try {
             PreparedStatement statement = connection.prepareStatement(DELETE_USER_BY_ID);
@@ -241,4 +250,8 @@ public class AdminService implements IAdminService{
         return role;
     }
 }
+
+
+
+
 

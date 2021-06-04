@@ -57,6 +57,7 @@ public class User {
 
     }
 
+
     public User(String name, String email, String password, String phone, String address, Gender gender, Role role) {
         this.name = name;
         this.email = email;
@@ -66,6 +67,7 @@ public class User {
         this.gender = gender;
         this.role = role;
     }
+
 
     public int getId() {
         return id;
