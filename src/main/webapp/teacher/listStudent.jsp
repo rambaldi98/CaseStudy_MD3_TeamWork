@@ -47,7 +47,7 @@
 <c:forEach items='${requestScope["classStudentList"]}' var="c">
     <tr>
         <td>${c.getaClass().getName()}</td>
-        <td>${c.getStudent().getName()}</td>
+        <td><a href="/teacher?action=viewDetailStudent&id=${c.getStudent().getId()}">${c.getStudent().getName()}</a></td>
     </tr>
 </c:forEach>
 </table>

@@ -51,13 +51,13 @@ create table diary_class(
 );
 
 create table diary_student(
-                              id int primary key auto_increment,
+    id int primary key auto_increment,
     student_id int,
     teacher_id int,
     date date,
     diary text,
-    foreign key student (student_id) references class_student(id),
-    foreign key teacher (teacher_id) references user(id)
+    foreign key student (student_id) references user (id),
+    foreign key teacher (teacher_id) references user (id)
 );
 drop table diary_student;
 

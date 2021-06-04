@@ -1,5 +1,7 @@
 package controller.login;
 
+import model.user.Role;
+import model.user.User;
 import service.loginjdbc.LoginAccount;
 
 import javax.servlet.RequestDispatcher;
@@ -9,72 +11,78 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.util.HashMap;
+
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 
+
+    public static final String LOGIN_LOGIN_ACCOUNT_JSP = "login/loginAccount.jsp";
+    public static final String LOGIN_INDEX_ADMIN_JSP = "admin/indexAdmin.jsp";
+    public static final String LOGIN_INDEX_TEACHER_JSP = "teacher/indexTeacher.jsp";
+    public static final String LOGIN_INDEX_MINISTER_JSP = "minister/indexMinister.jsp";
+    public static final String LOGIN_INDEX_STUDENT_JSP = "student/indexStudent.jsp";
+
+    public static User user;
     LoginAccount loginAccount = new LoginAccount();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//       String action = request.getParameter("action");
-//       if (action == null) action = "";
-//       switch (action){
-//           case "loginAccount":
-//               showFormLogin(request,response);
-//               break;
-//       }
+
         showFormLogin(request,response);
     }
 
     private void showFormLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("login/loginAccount.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(LOGIN_LOGIN_ACCOUNT_JSP);
         dispatcher.forward(request,response);
     }
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String action = request.getParameter("action");
-//        switch (action){
-//            case "loginAccount":
+
                 loginAccount(request,response);
-//                break;
-//        }
+
     }
 
     private void loginAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        RequestDispatcher dispatcher;
-        String role = loginAccount.checkLogin(username,password);
-        boolean isValid = loginAccount.checkLogin1(username,password);
-        if (isValid) {
-            if (role.equals("ADMIN")) {
-                dispatcher = request.getRequestDispatcher("admin/indexAdmin.jsp");
-                dispatcher.forward(request, response);
-            } else if (role.equals("TEACHER")) {
-                dispatcher = request.getRequestDispatcher("teacher/indexTeacher.jsp");
-                dispatcher.forward(request, response);
-            } else if (role.equals("MINISTER")) {
-                dispatcher = request.getRequestDispatcher("minister/indexMinister.jsp");
-                dispatcher.forward(request, response);
-            } else if (role.equals("STUDENT")) {
-                dispatcher = request.getRequestDispatcher("student/indexStudent.jsp");
-                dispatcher.forward(request, response);
+        RequestDispatcher dispatcher = null;
+        user = loginAccount.checkUser(username,password);
+
+
+        if (user != null) {
+            Role role = user.getRole();
+
+            switch (role) {
+                case ADMIN:
+                    dispatcher = request.getRequestDispatcher(LOGIN_INDEX_ADMIN_JSP);
+
+                    break;
+                case MINISTER:
+                    dispatcher = request.getRequestDispatcher(LOGIN_INDEX_MINISTER_JSP);
+
+                    break;
+                case STUDENT:
+                    dispatcher = request.getRequestDispatcher(LOGIN_INDEX_STUDENT_JSP);
+
+                    break;
+                case TEACHER:
+                    dispatcher = request.getRequestDispatcher(LOGIN_INDEX_TEACHER_JSP);
+                    break;
             }
+            request.setAttribute("user",user);
+            dispatcher.forward(request, response);
+
         }
 
          else {
-            dispatcher = request.getRequestDispatcher("login/loginAccount.jsp");
-            request.setAttribute("notification", "sai thong tin tai khoan hoac mat khau");
+            dispatcher = request.getRequestDispatcher(LOGIN_LOGIN_ACCOUNT_JSP);
+            request.setAttribute("notification", "account or password you entered is incorrect. ");
             dispatcher.forward(request, response);
         }
 
         }
-
-
 
     }
 

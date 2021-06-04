@@ -35,6 +35,14 @@ public class DiaryClass {
         this.teacher = user;
     }
 
+    public DiaryClass( Class classes, User user, String diary) {
+
+        this.aClass = classes;
+        this.teacher = user;
+        this.diary = diary;
+    }
+
+
     public int getId() {
         return id;
     }

@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>hello Teacher</h1>
+<h1>hello ${user.getName()}</h1>
 
 <h2><a href="/teacher?action=listClass">danh sách lớp</a></h2>
 

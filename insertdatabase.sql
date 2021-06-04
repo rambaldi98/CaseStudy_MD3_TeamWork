@@ -81,7 +81,15 @@ insert into diary_class(class_id, teacher_id) VALUES
 insert into diary_student(student_id, teacher_id) VALUES
 (1,4),(2,4),(3,4),(4,4),(5,4);
 
-
+create table diary_student(
+                              id int primary key auto_increment,
+                              student_id int,
+                              teacher_id int,
+                              date date,
+                              diary text,
+                              foreign key student (student_id) references user (id),
+                              foreign key teacher (teacher_id) references user (id)
+);
 
 
 
@@ -102,3 +110,15 @@ join user u on u.id = class_student.student_id where class_id = 1;
 #viet nhat ki cho lop
 insert into diary_class (class_id, teacher_id, date, diary) value
 (1,4,now(),  'day la demo nhat ki');
+
+
+# xem thong tin hoc sinh theo id
+select * ,g.name as gender_name, r.name as role_name from user
+  join gender g on g.id = user.gender_id
+ join role r on r.id = user.role_id
+where role_id = 4 and user.id = 12;
+
+# viet nhat ki cho hoc sinh
+insert into diary_student (student_id, teacher_id, date, diary) VALUE
+(1,4,now(),'nhat ki cho em hihihi');
+

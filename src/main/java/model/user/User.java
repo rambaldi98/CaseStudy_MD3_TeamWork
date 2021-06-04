@@ -71,6 +71,11 @@ public class User {
         this.name = name_teacher;
     }
 
+    public User(int id_student, String name_student) {
+        this.id = id_student;
+        this.name = name_student;
+    }
+
     public int getId() {
         return id;
     }

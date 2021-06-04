@@ -3,13 +3,13 @@
   Created by IntelliJ IDEA.
   User: TruongDubai
   Date: 6/4/2021
-  Time: 3:23 PM
+  Time: 5:25 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Write diary</title>
+    <title>Title</title>
     <style>
         .notification{
             color: darkmagenta;
@@ -17,7 +17,6 @@
     </style>
 </head>
 <body>
-
 <h2>Viết nhập kí</h2>
 
 <h2><a href="/teacher"> Quay lại</a></h2>
@@ -36,20 +35,10 @@
             <td>Giáo viên</td>
             <td>${user.getName()}</td>
         </tr>
-        <tr>
-            <td>Lớp</td>
-            <td>
-                <select name="id_class">
-                    <c:forEach var="l" items="${classList}">
-                        <option value="${l.getId()}">${l.getName()}</option>
-                    </c:forEach>
-                </select>
-            </td>
-        </tr>
 
         <tr>
             <td>"Thời gian</td>
-            <td><input type="date" name = date></td>
+            <td><input type="date" name = "date"></td>
         </tr>
         <tr>
             <td>Nhật kí</td>
