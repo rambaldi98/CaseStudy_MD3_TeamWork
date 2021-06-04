@@ -76,11 +76,65 @@ public class TeacherService implements ITeacherService{
 
     @Override
     public void writeDiaryClass(DiaryClass diaryClass) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("insert into diary_class (class_id, teacher_id, date, diary) value\n" +
+                    "(?,?,now(), ?)");
+            statement.setInt(1,diaryClass.getaClass().getId());
+            statement.setInt(2,diaryClass.getTeacher().getId());
+            statement.setString(3,diaryClass.getDiary());
+
+            statement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 
     @Override
     public void writeDiaryStudent(DiaryStudent diaryStudent) {
 
+    }
+
+
+    @Override
+    public List<Class> findAllClass() {
+        
+        List<Class> classList = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from class");
+            ResultSet set = statement.executeQuery();
+            while (set.next()){
+                int id = set.getInt("id");
+                String name = set.getString("name");
+                Class classes = new Class(id,name);
+                classList.add(classes);
+            }
+            
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return classList;
+    }
+
+
+    @Override
+    public Class findClassById(int id) {
+        Class classes = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from class where id = ?");
+
+            statement.setInt(1,id);
+            ResultSet set = statement.executeQuery();
+            while (set.next()){
+                String name = set.getString("name");
+                classes = new Class(id,name);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return classes;
     }
 }

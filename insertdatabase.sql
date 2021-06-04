@@ -98,3 +98,7 @@ select c.name,u.name from class_student
 join class c on c.id = class_student.class_id
 join user u on u.id = class_student.student_id where class_id = 1;
 
+
+#viet nhat ki cho lop
+insert into diary_class (class_id, teacher_id, date, diary) value
+(1,4,now(),  'day la demo nhat ki');

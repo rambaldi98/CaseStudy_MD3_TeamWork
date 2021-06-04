@@ -15,6 +15,8 @@
 
 <h2><a href="/teacher?action=listClass">danh sách lớp</a></h2>
 
+<h2><a href="/teacher?action=writeDiaryClass">Viết nhật kí</a></h2>
+
 <%--<h2><a href="/teacher?action=listStudent">danh sách học sinh </a></h2>--%>
 
 </body>

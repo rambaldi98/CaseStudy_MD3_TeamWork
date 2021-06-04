@@ -1,5 +1,6 @@
 package controller.teacher;
 
+import model.classes.Class;
 import model.diary.DiaryClass;
 import model.student.ClassStudent;
 import service.teacherjdbc.ITeacherService;
@@ -30,7 +31,18 @@ public class TeacherServlet extends HttpServlet {
             case "listStudent":
                 showListStudent(request,response);
                 break;
+            case "writeDiaryClass":
+                showFormWriteDiaryClass(request,response);
+                break;
         }
+    }
+
+    private void showFormWriteDiaryClass(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Class> classList = this.teacherService.findAllClass();
+        request.setAttribute("classList",classList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("teacher/writeDiaryClass.jsp");
+        dispatcher.forward(request,response);
+
     }
 
     private void showListStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,6 +65,28 @@ public class TeacherServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    String action = request.getParameter("action");
+    switch (action){
+        case "writeDiaryClass":
+            writeDiaryClass(request,response);
+            break;
+    }
+
+    }
+
+    private void writeDiaryClass(HttpServletRequest request, HttpServletResponse response) {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        int id_class = Integer.parseInt(request.getParameter("id_class"));
+        String diary = request.getParameter("diary");
+
+        Class classes = this.teacherService.findClassById(id_class);
+
+
+//        DiaryClass diaryClass = new DiaryClass(name,id_class,diary);
+
 
     }
 }

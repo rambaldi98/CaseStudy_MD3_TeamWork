@@ -1,5 +1,6 @@
 package service.teacherjdbc;
 
+import model.classes.Class;
 import model.diary.DiaryClass;
 import model.diary.DiaryStudent;
 import model.student.ClassStudent;
@@ -15,6 +16,10 @@ public interface ITeacherService {
     void writeDiaryClass (DiaryClass diaryClass);
 
     void  writeDiaryStudent(DiaryStudent diaryStudent);
+
+    List<Class> findAllClass();
+
+    Class findClassById(int id);
 
 
 
