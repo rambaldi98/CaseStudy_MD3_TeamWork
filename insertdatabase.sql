@@ -33,3 +33,7 @@ select * ,g.name as gender_name, r.name as role_name from user
 
 # xoaa theo id
 delete from  user where id = 9;
+
+
+#theem moi 1 mon hoc
+insert into subject (name) value ('Toan');

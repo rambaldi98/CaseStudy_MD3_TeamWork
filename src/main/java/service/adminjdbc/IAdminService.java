@@ -1,6 +1,7 @@
 package service.adminjdbc;
 
 
+import model.subject.Subject;
 import model.user.Gender;
 import model.user.Role;
 import model.user.User;
@@ -32,6 +33,8 @@ public interface IAdminService {
     Role findRoleById(int id);
 
     Gender findGenderById(int id);
+
+    void createNewSubject(Subject subject);
 
 
 

@@ -19,7 +19,7 @@
 <body>
 
 <h1>Sửa thông tin hoc sinh</h1>
-<h3><a href="/indexAdmin">Quay lại</a></h3>
+<h3><a href="admin/indexAdmin.jsp">Quay lại</a></h3>
 
 <c:if test='${requestScope["notification"] != null}'>
     <span class="notification">${requestScope["notification"]}</span>

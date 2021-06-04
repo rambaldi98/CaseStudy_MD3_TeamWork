@@ -1,6 +1,7 @@
 package controller.admin;
 
 
+import model.subject.Subject;
 import model.user.Gender;
 import model.user.Role;
 
@@ -39,7 +40,6 @@ public class AdminServlet extends HttpServlet {
                 showListUser(request,response);
                 break;
 
-
             case "createUser":
                 showFormCreateUSer(request,response);
                 break;
@@ -52,9 +52,19 @@ public class AdminServlet extends HttpServlet {
                 showFormDelete(request,response);
                 break;
 
+            case "createSubject":
+                showFormCreateNewSubject(request,response);
+                break;
+
         }
     }
 
+    private void showFormCreateNewSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/createSubject.jsp");
+        dispatcher.forward(request,response);
+
+
+    }
 
 
     private void showFormDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -117,12 +127,26 @@ public class AdminServlet extends HttpServlet {
                 deleteUser(request,response);
                 break;
 
+                case "createSubject":
+                    createNewSubject(request,response);
+                    break;
+
 
             }
         }
         catch (ParseException e) {
         e.printStackTrace();
          }
+    }
+
+    private void createNewSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String name = request.getParameter("name");
+        Subject subject = new Subject(name);
+        this.adminService.createNewSubject(subject);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/createSubject.jsp");
+        request.setAttribute("notification","them mon hoc thanh cong");
+        dispatcher.forward(request,response);
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -161,7 +185,6 @@ public class AdminServlet extends HttpServlet {
 
 
     }
-
 
     private void createNewUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
         String name = request.getParameter("name");

@@ -1,5 +1,6 @@
 package service.adminjdbc;
 
+import model.subject.Subject;
 import model.user.Gender;
 import model.user.Role;
 import model.user.User;
@@ -35,6 +36,7 @@ public class AdminService implements IAdminService{
     public static final String INSERT_USER = "insert user (name,email,password,phone,dateofbirth,address," +
             "gender_id,role_id) value (?,?,?,?,?,?,?,?)";
     public static final String DELETE_USER_BY_ID = "delete from  user where id = ?";
+    public static final String INSERT_NEW_SUBJECT = "insert into subject (name ) value (?)";
 
     Connection connection = ConnectJDBC.getConnection();
 
@@ -248,6 +250,19 @@ public class AdminService implements IAdminService{
 
 
         return role;
+    }
+
+
+    @Override
+    public void createNewSubject(Subject subject) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(INSERT_NEW_SUBJECT);
+            statement.setString(1,subject.getName());
+            statement.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }
 
