@@ -2,6 +2,7 @@ package controller.admin;
 
 
 
+import controller.login.LoginServlet;
 import model.subject.Subject;
 
 import model.user.Gender;
@@ -29,6 +30,15 @@ import java.util.List;
 public class AdminServlet extends HttpServlet {
 
     IAdminService adminService = new AdminService();
+    public static User user = LoginServlet.user;
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(user == null) resp.sendRedirect("/login");
+        req.setAttribute("user",user);
+        doGet(req,resp);
+        doPost(req,resp);
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

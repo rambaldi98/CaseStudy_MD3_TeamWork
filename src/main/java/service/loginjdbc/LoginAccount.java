@@ -53,29 +53,29 @@ public class LoginAccount {
 
 
 
-    public String checkLogin(String username ,String password){
-        String role = null;
-        PreparedStatement statement = null;
-        try {
-            statement = connection.prepareStatement(SELECT_CHECK_USER_ROLE);
-            statement.setString(1,username);
-            statement.setString(2,password);
-
-            ResultSet set = statement.executeQuery();
-
-            if (set.next()){
-                String role_name = set.getString("role_name");
-                if (role_name.equals("ADMIN")) role = "ADMIN";
-                else if (role_name.equals("TEACHER")) role = "TEACHER";
-                else if (role_name.equals("MINISTER")) role = "MINISTER";
-                else if (role_name.equals("STUDENT")) role = "STUDENT";
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    return role;
-    }
+//    public String checkLogin(String username ,String password){
+//        String role = null;
+//        PreparedStatement statement = null;
+//        try {
+//            statement = connection.prepareStatement(SELECT_CHECK_USER_ROLE);
+//            statement.setString(1,username);
+//            statement.setString(2,password);
+//
+//            ResultSet set = statement.executeQuery();
+//
+//            if (set.next()){
+//                String role_name = set.getString("role_name");
+//                if (role_name.equals("ADMIN")) role = "ADMIN";
+//                else if (role_name.equals("TEACHER")) role = "TEACHER";
+//                else if (role_name.equals("MINISTER")) role = "MINISTER";
+//                else if (role_name.equals("STUDENT")) role = "STUDENT";
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//
+//    return role;
+//    }
 
 
 }

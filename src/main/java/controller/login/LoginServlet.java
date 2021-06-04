@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
     public static final String LOGIN_INDEX_MINISTER_JSP = "minister/indexMinister.jsp";
     public static final String LOGIN_INDEX_STUDENT_JSP = "student/indexStudent.jsp";
 
-    private static User user;
+    public static User user;
     LoginAccount loginAccount = new LoginAccount();
 
     @Override
