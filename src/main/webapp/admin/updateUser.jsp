@@ -22,12 +22,13 @@
 
 <h3><a href="admin/indexAdmin.jsp">Quay lại</a></h3>
 
-<h3><a href="/admin?action=listUser">Quay lại</a></h3>
+
 
 
 <c:if test='${requestScope["notification"] != null}'>
     <span class="notification">${requestScope["notification"]}</span>
 </c:if>
+
 
 <form   method="post">
     <table>

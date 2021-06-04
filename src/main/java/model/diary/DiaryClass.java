@@ -30,6 +30,11 @@ public class DiaryClass {
         this.diary = diary;
     }
 
+    public DiaryClass(Class classes, User user) {
+        this.aClass = classes;
+        this.teacher = user;
+    }
+
     public int getId() {
         return id;
     }

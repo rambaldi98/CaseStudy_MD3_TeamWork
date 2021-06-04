@@ -67,6 +67,10 @@ public class User {
         this.role = role;
     }
 
+    public User(String name_teacher) {
+        this.name = name_teacher;
+    }
+
     public int getId() {
         return id;
     }
