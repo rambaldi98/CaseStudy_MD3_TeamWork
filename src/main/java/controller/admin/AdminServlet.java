@@ -46,8 +46,16 @@ public class AdminServlet extends HttpServlet {
             case "deleteUser":
                 showFormDelete(request,response);
                 break;
+            default:
+                showIndexAdmin(request,response);
+                break;
 
         }
+    }
+
+    private void showIndexAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/indexAdmin.jsp");
+        dispatcher.forward(request,response);
     }
 
     private void showFormDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -91,18 +99,18 @@ public class AdminServlet extends HttpServlet {
         String action = request.getParameter("action");
         try {
             switch (action){
-            case "createUser":
-                createNewUser(request,response);
-                break;
-
-            case "updateUser":
-                 updateUser(request,response);
-                break;
-
-            case "deleteUser":
-                deleteUser(request,response);
-                break;
-
+                case "createUser":
+                    createNewUser(request,response);
+                    break;
+                case "updateUser":
+                    updateUser(request,response);
+                    break;
+                case "deleteUser":
+                    deleteUser(request,response);
+                    break;
+//                default:
+//                    showIndexAdmin(request,response);
+//                    break;
 
             }
         }
@@ -138,13 +146,13 @@ public class AdminServlet extends HttpServlet {
 
         User user = new User(id,name,email,password,phone,dateOfBirth,address,gender,role);
 
-        this.adminService.update(id,user, request );
+        this.adminService.update(id,user, request);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/updateUser.jsp");
+
         request.setAttribute("notification","Sửa thông tin thành công");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/updateUser.jsp");
         dispatcher.forward(request,response);
-
-
+//        showIndexAdmin(request,response);
 
     }
 

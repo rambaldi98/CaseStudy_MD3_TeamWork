@@ -39,7 +39,7 @@
 <h1>Danh sách </h1>
 
 
-<h2><a href="/admin">Trở về trang chủ</a></h2>
+<h2><a href="/admin/indexAdmin.jsp">Trở về trang chủ</a></h2>
 
 <table>
     <tr>

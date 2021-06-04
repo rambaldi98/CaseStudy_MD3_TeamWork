@@ -18,7 +18,7 @@
 </head>
 <body>
 <h1>Create User</h1>
-
+<h2><a href="/admin/indexAdmin.jsp">Trở về trang chủ</a></h2>
 <form  method="post">
     <c:if test='${requestScope["notification"] != null}'>
         <h2 class="notification">${requestScope["notification"]}</h2>
