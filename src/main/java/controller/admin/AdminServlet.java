@@ -83,6 +83,8 @@ public class AdminServlet extends HttpServlet {
         request.setAttribute("user",user);
         dispatcher.forward(request,response);
     }
+
+
     private void showFormCreateUSer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         RequestDispatcher dispatcher=request.getRequestDispatcher("admin/createUser.jsp");
