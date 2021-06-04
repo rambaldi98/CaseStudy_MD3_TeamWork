@@ -5,6 +5,7 @@ import model.user.Role;
 import model.user.User;
 import service.ConnectJDBC;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +21,6 @@ public class AdminService implements IAdminService{
             "join gender g on g.id = user.gender_id";
 
     Connection connection = ConnectJDBC.getConnection();
-
     @Override
     public List<User> findAll() {
 
