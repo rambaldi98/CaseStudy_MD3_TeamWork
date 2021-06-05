@@ -1,19 +1,19 @@
 @charset "utf-8";
 /*
-Template Name: School Education
+Template Name: Educational
 Author: <a href="http://www.os-templates.com/">OS Templates</a>
 Author URI: http://www.os-templates.com/
 Licence: Free to use under our free template licence terms
 Licence URI: http://www.os-templates.com/template-terms
 File: LoginSlider CSS
 
-Inspired By:Sliding Login Panel with jQuery from http://web-kreation.com/index.php/tutorials/nice-clean-sliding-login-panel-built-with-jquery/
+Inspired By: Sliding Login Panel with jQuery from http://web-kreation.com/index.php/tutorials/nice-clean-sliding-login-panel-built-with-jquery/
 */
 
-#topbar{position:relative; margin:0 auto; display:block; width:960px; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif;}
-#topbar a{color:#02ACEE; background-color:#4A5155;}
-#topbar a:hover{color:#FFFFFF; background-color:#4A5155;}
-#slidepanel{display:none; position:relative; width:960px; overflow:hidden; color:#E3DFD2; background:url("images/tab_l.gif") bottom left no-repeat #4A5155;}
+#topbar{display:block; position:relative; width:960px; margin:0 auto; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+#topbar a{color:#F8F7DF; background-color:#313131;}
+#topbar a:hover{color:#8B785F; background-color:#313131;}
+#slidepanel{display:none; position:relative; width:960px; overflow:hidden; color:#FFFFFF; background:url("images/tab_l.gif") bottom left no-repeat #313131;}
 
 /* ----------------------------------------------Content------------------------------------- */
 
@@ -36,7 +36,7 @@ Inspired By:Sliding Login Panel with jQuery from http://web-kreation.com/index.p
 /* ----------------------------------------------Tab Panel------------------------------------- */
 
 #loginpanel{display:block; position:relative; top:0;}
-#loginpanel ul{display:block; float:right; width:210px; height:24px; margin:0; padding:6px 0 0 0; text-align:center; color:#E3DFD2; background-color:#4A5155;}
+#loginpanel ul{display:block; float:right; width:210px; height:24px; margin:0; padding:6px 0 0 0; text-align:center; color:#CCCCCC; background-color:#313131;}
 #loginpanel li{display:block; height:24px; margin:0; padding:0;}
 #loginpanel li.left{float:left; text-align:right; padding-left:10px; background:url("images/tab_l.gif") no-repeat bottom left;}
 #loginpanel li.right{float:right; text-align:left; padding-right:10px; background:url("images/tab_r.gif") no-repeat bottom right;}

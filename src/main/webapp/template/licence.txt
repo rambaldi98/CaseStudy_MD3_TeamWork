@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Template Name: School Education
+Template Name: Educational
 File: Licence
 Author: OS Templates
 Author URI: http://www.os-templates.com/
@@ -46,7 +46,7 @@ All templates that can be found within this site have copyright information and 
 
 Credit link(s) and copyright information must stay unmodified in all web pages that use our template(s).
 
-The default credit link that can be found in the (source code) template footer is: <p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+The default credit link that can be found in the (source code) template footer is: <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
 
 The default footer link may be changed to:
 
