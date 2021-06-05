@@ -122,3 +122,74 @@ where role_id = 4 and user.id = 12;
 insert into diary_student (student_id, teacher_id, date, diary) VALUE
 (1,4,now(),'nhat ki cho em hihihi');
 
+select c.name as class_name,c.id as id_class ,u.name as user_name from diary_class
+            join class c on c.id = diary_class.class_id
+            join user u on u.id = diary_class.teacher_id
+where teacher_id =4;
+# group by c.id ;
+
+INSERT INTO manager_teaching_center.user (name, email, password, phone, dateofbirth, address, gender_id, role_id) VALUES
+ ('Quân', 'quan@gmail.com', '123456', '0999999996', '1999-06-10', 'Ha Noi', 1, 2);
+
+INSERT INTO manager_teaching_center.subject (id, name) VALUES (3, 'Van');
+
+INSERT INTO manager_teaching_center.subject (id, name) VALUES (4, 'Vat li');
+
+INSERT INTO manager_teaching_center.subject (id, name) VALUES (5, 'Hoa hoc');
+
+INSERT INTO manager_teaching_center.point (minister_id, student_id, subject_id, point) VALUES (6, 11, 1, 9.5);
+
+INSERT INTO manager_teaching_center.point (minister_id, student_id, subject_id, point) VALUES (6, 11, 2, 9);
+
+INSERT INTO manager_teaching_center.point (minister_id, student_id, subject_id, point) VALUES (6, 11, 3, 6);
+
+INSERT INTO manager_teaching_center.point (minister_id, student_id, subject_id, point) VALUES (6, 11, 4, 8);
+
+INSERT INTO manager_teaching_center.point (minister_id, student_id, subject_id, point) VALUES (6, 12, 1, 9);
+
+INSERT INTO manager_teaching_center.point (minister_id, student_id, subject_id, point) VALUES (6, 12, 2, 8);
+
+INSERT INTO manager_teaching_center.point (minister_id, student_id, subject_id, point) VALUES (6, 12, 3, 8);
+
+select s.name,point from point
+join subject s on s.id = point.subject_id
+where student_id = 11;
+
+INSERT INTO manager_teaching_center.status (status) VALUES ('STUDYING');
+
+ INSERT INTO manager_teaching_center.status (status) VALUES ('WAITING');
+
+ INSERT INTO manager_teaching_center.status (status) VALUES ('STOP_STUDYING');
+
+INSERT INTO manager_teaching_center.status (status) VALUES ('SUSPEND');
+
+alter table status_student
+add foreign key (status_id) references status(id);
+
+select  name, status from status_student
+join status s on s.id = status_student.status_id
+join user u on u.id = status_student.student_id
+where u.id = 11;
+
+INSERT INTO manager_teaching_center.status_student (student_id, status_id) VALUES (11, 1);
+
+INSERT INTO manager_teaching_center.status_student (student_id, status_id) VALUES (12, 1);
+
+ INSERT INTO manager_teaching_center.status_student (student_id, status_id) VALUES (13, 2);
+
+INSERT INTO manager_teaching_center.status_student (student_id, status_id) VALUES (14, 3);
+
+select u.id , u.name as user_name,u.email,u.address,g.name as gender, status  from status_student
+join user u on u.id = status_student.student_id
+join gender g on g.id = u.gender_id
+join status s on s.id = status_student.status_id
+where u.name = 'hung' or email = 'son@gmail.com';
+
+update status_student
+set status_id = 3
+where student_id = 12;
+
+
+
+
+

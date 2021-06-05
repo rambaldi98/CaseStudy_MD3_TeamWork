@@ -1,5 +1,6 @@
 package service.teacherjdbc;
 
+import controller.login.LoginServlet;
 import model.classes.Class;
 import model.diary.DiaryClass;
 import model.diary.DiaryStudent;
@@ -25,7 +26,10 @@ public class TeacherService implements ITeacherService{
 
     public static final String SELCET_ALL_FROM_DIARY_CLASS = "select c.name as class_name,c.id as id_class ,u.name as user_name from diary_class\n" +
             "join class c on c.id = diary_class.class_id\n" +
-            "join user u on u.id = diary_class.teacher_id;";
+            "join user u on u.id = diary_class.teacher_id";
+
+
+            ;
     public static final String SELECT_STUDENT_BY_ID_CLASS = "select c.name as name_class,u.id as id_student, u.name as name_student  from class_student\n" +
             "join class c on c.id = class_student.class_id\n" +
             "join user u on u.id = class_student.student_id where class_id = ?";
@@ -50,6 +54,8 @@ public class TeacherService implements ITeacherService{
         List<DiaryClass>  diaryClassList = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(SELCET_ALL_FROM_DIARY_CLASS);
+
+            System.out.println(LoginServlet.user.getId());
             ResultSet set = statement.executeQuery();
             while (set.next()){
                 int id_class = set.getInt("id_class");

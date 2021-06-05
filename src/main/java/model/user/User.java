@@ -14,7 +14,7 @@ public class User {
     private Gender gender;
     private Role role;
 
-    public User() {
+    public User(int id, String name, String email, String address) {
     }
 
     public User(String name, String email, String password, String phone, Date dateOfBirth, String address, Gender gender, Role role) {
@@ -75,6 +75,18 @@ public class User {
         this.id = id_student;
         this.name = name_student;
     }
+
+    public User(int id, String name, String email, String address, Gender gender1) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.gender = gender1;
+    }
+
+
+
+
 
     public int getId() {
         return id;

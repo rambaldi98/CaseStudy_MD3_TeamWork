@@ -20,7 +20,7 @@
 
 <h2>Viết nhập kí</h2>
 
-<h2><a href="/teacher"> Quay lại</a></h2>
+<h2><a href="teacher/indexTeacher.jsp"> Quay lại</a></h2>
 
 
 <h4>

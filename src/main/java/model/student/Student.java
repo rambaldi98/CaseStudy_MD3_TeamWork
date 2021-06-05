@@ -1,5 +1,6 @@
 package model.student;
 
+import model.user.Gender;
 import model.user.User;
 
 public class Student {
@@ -23,6 +24,19 @@ public class Student {
 
     public Student(String name_student) {
     }
+
+    public Student(Status status1) {
+        this.status = status1;
+    }
+
+    public Student(User user) {
+        this.student = user;
+    }
+
+//    public Student(User user, Gender gender1, Status status1) {
+//        this.student = user;
+//        this.
+//    }
 
     public int getId() {
         return id;

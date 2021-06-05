@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: TruongDubai
-  Date: 6/4/2021
-  Time: 5:25 PM
+  Date: 6/5/2021
+  Time: 3:22 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,39 +17,25 @@
     </style>
 </head>
 <body>
-<h2>Viết nhập kí</h2>
-
-<h2><a href="teacher/indexTeacher.jsp"> Quay lại</a></h2>
-
 
 <h4>
     <c:if test='${requestScope["notification"] != null}'>
         <span class="notification">${requestScope["notification"]}</span>
     </c:if>
 </h4>
-
 <form action="" method="post">
-    <table>
+<table>
 
-        <tr>
-            <td>Giáo viên</td>
-            <td>${user.getName()}</td>
-        </tr>
-
-        <tr>
-            <td>"Thời gian</td>
-            <td><input type="date" name = "date"></td>
-        </tr>
-        <tr>
-            <td>Nhật kí</td>
-            <td><input type="text" name="diary"></td>
-        </tr>
-        <tr>
+        <tr><td>Nhập tên cho học sinh cần thay đổi:</td>
             <td></td>
-            <td><input type="submit" value="Thêm mới"></td>
         </tr>
+        <tr><td><input type="text" name="name"></td></tr>
 
-    </table>
+    <tr>
+
+        <td><input type="submit" value="Tìm kiếm"></td>
+    </tr>
+</table>
 </form>
 
 </body>

@@ -11,6 +11,14 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hello Minister</h1>
+<h1>Hello ${user.getName()}</h1>
+
+<h2><a href="/minister?action=searchStudent">Thay Doi trang thai </a></h2>
+<h2><a href="/minister?action=searchStudent">Thay Doi diem.chua lam xong </a></h2>
+
+<%--<h2><a href="/minister?action=listStudent">Danh sách học sinh</a></h2>--%>
+
+
+
 </body>
 </html>

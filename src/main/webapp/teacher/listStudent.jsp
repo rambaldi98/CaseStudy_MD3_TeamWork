@@ -37,7 +37,7 @@
 <body>
 <h1>Danh sách học sinh</h1>
 
-<h2><a href="teacher/listClass.jsp">Trở về danh sách lớp</a></h2>
+<h2><a href="teacher/indexTeacher.jsp">Trở về danh sách lớp</a></h2>
 
 <table>
 <tr>

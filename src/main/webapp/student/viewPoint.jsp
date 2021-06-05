@@ -2,14 +2,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: TruongDubai
-  Date: 6/4/2021
-  Time: 11:32 AM
+  Date: 6/5/2021
+  Time: 10:23 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Xem diem</title>
     <style>
         table {
             text-align: center;
@@ -35,25 +35,23 @@
     </style>
 </head>
 <body>
+<h3><a href="/student/indexStudent.jsp">Quay lại</a></h3>
 
-
-<h1>Danh sách </h1>
-
-
-<h2><a href="/teacher/indexTeacher.jsp">Trở về trang chủ</a></h2>
+<h3>Tên học sinh : ${user.getName()}</h3>
 
 <table>
     <tr>
-        <th>Tên GV</th>
-        <th>Lớp học</th>
+        <th>Môn học</th>
+        <th>Điểm</th>
     </tr>
-    <c:forEach items='${requestScope["diaryClassList"]}' var="d">
+    <c:forEach items='${requestScope["pointList"]}' var="p">
         <tr>
-            <td>${d.getTeacher().getName()}</td>
-            <td><a href="/teacher?action=listStudent&id=${d.getaClass().getId()}">${d.getaClass().getName()}</a></td>
+            <td>${p.getSubject().getName()}</td>
+            <td>${p.getPoint()}</td>
         </tr>
     </c:forEach>
 </table>
+
 
 </body>
 </html>
