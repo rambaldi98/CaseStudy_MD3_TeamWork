@@ -1,5 +1,5 @@
 use manager_teaching_center;
-
+# rename database centermanager TO manager_teaching_center;
 insert into role(name) value
     ('admin'),
     ('minister'),
