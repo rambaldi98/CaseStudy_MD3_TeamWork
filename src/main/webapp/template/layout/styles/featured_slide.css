@@ -9,14 +9,15 @@ File: Featured Slider CSS
 */
 
 #featured_slide{position:relative; width:960px; margin:0 auto; padding:20px 0 0 0;}
-#featured_slide #featured_wrap{position:relative; width:940px; height:290px; padding:10px; overflow:hidden; color:#333333; background-color:#FFFFFF;}
+/*height = 290*/
+#featured_slide #featured_wrap{position:relative; width:940px; height:600px; padding:10px; overflow:hidden; color:#333333; background-color:#FFFFFF;}
 #featured_slide a{color:#CCCCCC; background-color:transparent;}
 #featured_slide a, #featured_slide ul, #featured_slide img{margin:0; padding:0; border:none; outline:none; list-style:none; text-decoration:none;}
 #featured_slide h1, #featured_slide h2, #featured_slide h3, #featured_slide h4, #featured_slide h5, #featured_slide h6{margin:0 0 15px 0; padding:0; line-height:normal; font-size:20px; font-weight:normal;}
 
 /* ----------------------------------------------Generalise------------------------------------- */
-
-#featured_content, .featured_box, .featured_box img{display:block; width:940px; height:290px;}
+/*height 290px*/
+#featured_content, .featured_box, .featured_box img{display:block; width:940px; height:600px;}
 #featured_content{overflow:hidden;}
 .featured_box{position:relative;}
 

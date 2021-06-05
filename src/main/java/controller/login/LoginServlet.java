@@ -77,10 +77,10 @@ public class LoginServlet extends HttpServlet {
                     break;
             }
 
-            Cookie cookie = new Cookie("user1",user.getName());
-            cookie.setMaxAge(20);
+            Cookie cookie = new Cookie("user",user.getName());
+            cookie.setMaxAge(100);
             response.addCookie(cookie);
-            request.setAttribute("user",user.getName());
+            request.setAttribute("user",user);
             dispatcher.forward(request, response);
         }
          else {

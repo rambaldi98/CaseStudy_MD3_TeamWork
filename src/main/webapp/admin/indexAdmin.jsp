@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1>hello ${user}</h1>
+<h1>hello ${user.getName()}</h1>
 
 <h2><a href="/admin?action=listUser">Danh sách</a></h2>
 

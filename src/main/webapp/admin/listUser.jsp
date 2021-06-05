@@ -36,7 +36,7 @@
 </head>
 <body>
 
-<h1>hello ${user}</h1>
+<h1>hello ${user.getName()}</h1>
 <h1>Danh sách </h1>
 
 

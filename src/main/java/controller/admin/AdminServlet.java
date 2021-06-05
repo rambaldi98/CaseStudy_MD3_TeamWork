@@ -43,15 +43,13 @@ public class AdminServlet extends HttpServlet {
                a = c;
                check = true;
            }
-
         }
         if(check){
-            req.setAttribute("user",a.getValue());
+            req.setAttribute("user",user);
             doGet(req,res);
             doPost(req,res);
         }
         else {
-//            req.setAttribute("user",user);
             res.sendRedirect("/login");
         }
     }
@@ -168,9 +166,6 @@ public class AdminServlet extends HttpServlet {
                     createNewSubject(request,response);
                     break;
 
-
-
-
             }
         }
         catch (ParseException e) {
@@ -184,7 +179,7 @@ public class AdminServlet extends HttpServlet {
         Subject subject = new Subject(name);
         this.adminService.createNewSubject(subject);
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/createSubject.jsp");
-        request.setAttribute("notification","them mon hoc thanh cong");
+        request.setAttribute("notification","add new subject successfull");
         dispatcher.forward(request,response);
     }
 
