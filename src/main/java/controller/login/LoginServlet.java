@@ -26,13 +26,14 @@ public class LoginServlet extends HttpServlet {
 
     public static User user;
     LoginAccount loginAccount = new LoginAccount();
-
+    private static Cookie cookie;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
         showFormLogin(request,response);
 
+        cookie.setMaxAge(0);
 
     }
 
@@ -77,7 +78,7 @@ public class LoginServlet extends HttpServlet {
                     break;
             }
 
-            Cookie cookie = new Cookie("user",user.getName());
+             cookie = new Cookie("user",user.getName());
             cookie.setMaxAge(100);
             response.addCookie(cookie);
             request.setAttribute("user",user);

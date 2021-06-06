@@ -62,7 +62,7 @@
 </div>
 
 
-
+<%----%>
 <div class="wrapper col1">
     <div id="header">
         <div id="logo">
@@ -82,39 +82,12 @@
 </div>
 <%----%>
 
-<div class="wrapper col2">
-    <div id="topnav">
+<%--<div class="wrapper col2">--%>
+<%--    <div id="topnav">--%>
 
-<%--            <p class="active"><a href="#">Home</a>--%>
-<%--                <ul>--%>
-<%--                    <li><a href="#">Libero</a></li>--%>
-<%--                    <li><a href="#">Maecenas</a></li>--%>
-<%--                    <li><a href="#">Mauris</a></li>--%>
-<%--                    <li class="last"><a href="#">Suspendisse</a></li>--%>
-<%--                </ul>--%>
-<%--            </p>--%>
 
-<%--            link page--%>
-
-<%--            <li><a href="pages/style-demo.html">Style Demo</a>--%>
-<%--                <ul>--%>
-<%--                    <li><a href="#">Lorem ipsum dolor</a></li>--%>
-<%--                    <li><a href="#">Suspendisse in neque</a></li>--%>
-<%--                    <li class="last"><a href="#">Praesent et eros</a></li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li><a href="pages/full-width.html">Full Width</a>--%>
-<%--                <ul>--%>
-<%--                    <li><a href="#">Lorem ipsum dolor</a></li>--%>
-<%--                    <li><a href="#">Suspendisse in neque</a></li>--%>
-<%--                    <li class="last"><a href="#">Praesent et eros</a></li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li><a href="#">Our Services</a></li>--%>
-<%--            <li class="last"><a href="#">Long Link Text</a></li>--%>
-
-    </div>
-</div>
+<%--    </div>--%>
+<%--</div>--%>
 
 <div class="wrapper col3" >
     <div id="featured_slide">
