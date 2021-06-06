@@ -10,8 +10,9 @@
 <html>
 <head>
     <title>Update user</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
-        .notification{
+        .notifications{
             color: darkmagenta;
         }
     </style>
@@ -22,13 +23,15 @@
 
 <h3><a href="admin/indexAdmin.jsp">Quay lại</a></h3>
 
+<h3><a href="/admin?action=listUser">Quay lại</a></h3>
 
 
-
-<c:if test='${requestScope["notification"] != null}'>
-    <span class="notification">${requestScope["notification"]}</span>
+<c:if test='${notification == "done"}'>
+    <span class="notifications">sửa thành công</span>
 </c:if>
 
+
+<c:if test='${notification != "done"}'>
 
 <form   method="post">
     <table>
@@ -83,6 +86,7 @@
         </tr>
     </table>
 </form>
+</c:if>
 
 </body>
 </html>

@@ -7,6 +7,7 @@ import service.loginjdbc.LoginAccount;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,14 +22,18 @@ public class LoginServlet extends HttpServlet {
     public static final String LOGIN_INDEX_TEACHER_JSP = "teacher/indexTeacher.jsp";
     public static final String LOGIN_INDEX_MINISTER_JSP = "minister/indexMinister.jsp";
     public static final String LOGIN_INDEX_STUDENT_JSP = "student/indexStudent.jsp";
-
+    public static final String ACCOUNT_INCORRECT = "account or password you entered is incorrect.";
     public static User user;
     LoginAccount loginAccount = new LoginAccount();
 
+    private static Cookie cookie;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         showFormLogin(request,response);
+        cookie.setMaxAge(0);
+
     }
 
     private void showFormLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +55,6 @@ public class LoginServlet extends HttpServlet {
         RequestDispatcher dispatcher = null;
         user = loginAccount.checkUser(username,password);
 
-
         if (user != null) {
             Role role = user.getRole();
 
@@ -71,18 +75,21 @@ public class LoginServlet extends HttpServlet {
                     dispatcher = request.getRequestDispatcher(LOGIN_INDEX_TEACHER_JSP);
                     break;
             }
+            cookie = new Cookie("user",user.getName());
+            cookie.setMaxAge(200);
+            response.addCookie(cookie);
             request.setAttribute("user",user);
-            dispatcher.forward(request, response);
 
         }
 
-         else {
+        else {
             dispatcher = request.getRequestDispatcher(LOGIN_LOGIN_ACCOUNT_JSP);
-            request.setAttribute("notification", "account or password you entered is incorrect. ");
-            dispatcher.forward(request, response);
+//            request.setAttribute("notification", "account or password you entered is incorrect. ");
+            request.setAttribute("notification", ACCOUNT_INCORRECT);
         }
-
-        }
+        dispatcher.forward(request, response);
 
     }
+
+}
 

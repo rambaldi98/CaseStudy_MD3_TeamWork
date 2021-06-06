@@ -1,5 +1,5 @@
 use manager_teaching_center;
-
+# rename database centermanager TO manager_teaching_center;
 insert into role(name) value
     ('ADMIN'),
     ('TEACHER'),
@@ -12,6 +12,8 @@ insert into role(name) value
 insert user (name,email,password,phone,dateofbirth,address,
                     gender_id,role_id) value ('haiii','adad','123456','11qsq','2000-10-10','asa',1,3);
 
+#  querry find user check user login
+select u.name as name, u.email as email, u.password as password, u.phone as phone , u.dateofbirth as dateofbirth,u.address as address , r.name as role, g.name as gender from user u join gender g on u.gender_id = g.id join role r on u.role_id = r.id where email = 'asdd' and password = '123';
 
 # tim kiem user theo id
 select * ,g.name as gender_name, r.name as role_name from user
@@ -125,7 +127,8 @@ insert into diary_student (student_id, teacher_id, date, diary) VALUE
 select c.name as class_name,c.id as id_class ,u.name as user_name from diary_class
             join class c on c.id = diary_class.class_id
             join user u on u.id = diary_class.teacher_id
-where teacher_id =4;
+where teacher_id =4
+group by c.name;
 # group by c.id ;
 
 INSERT INTO manager_teaching_center.user (name, email, password, phone, dateofbirth, address, gender_id, role_id) VALUES
@@ -183,13 +186,16 @@ select u.id , u.name as user_name,u.email,u.address,g.name as gender, status  fr
 join user u on u.id = status_student.student_id
 join gender g on g.id = u.gender_id
 join status s on s.id = status_student.status_id
-where u.name = 'hung' or email = 'son@gmail.com';
+where u.name = 'hung';
+
+
 
 update status_student
 set status_id = 3
 where student_id = 12;
 
 
+select * from diary_class where teacher_id = 4 and class_id = 1
 
 
 

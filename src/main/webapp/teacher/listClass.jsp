@@ -46,11 +46,13 @@
     <tr>
         <th>Tên GV</th>
         <th>Lớp học</th>
+        <th></th>
     </tr>
     <c:forEach items='${requestScope["diaryClassList"]}' var="d">
         <tr>
             <td>${d.getTeacher().getName()}</td>
             <td><a href="/teacher?action=listStudent&id=${d.getaClass().getId()}">${d.getaClass().getName()}</a></td>
+            <td><a href="/teacher?action=viewDiaryClass&id=${d.getaClass().getId()}">Xem nhật kí</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -26,7 +26,7 @@ public class TeacherService implements ITeacherService{
 
     public static final String SELCET_ALL_FROM_DIARY_CLASS = "select c.name as class_name,c.id as id_class ,u.name as user_name from diary_class\n" +
             "join class c on c.id = diary_class.class_id\n" +
-            "join user u on u.id = diary_class.teacher_id";
+            "join user u on u.id = diary_class.teacher_id where teacher_id = ? group by c.name";
 
 
             ;
@@ -50,11 +50,11 @@ public class TeacherService implements ITeacherService{
 
 
     @Override
-    public List<DiaryClass> findAllClassByTeacher() {
+    public List<DiaryClass> findAllClassByTeacher(int id) {
         List<DiaryClass>  diaryClassList = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(SELCET_ALL_FROM_DIARY_CLASS);
-
+            statement.setInt(1,id);
             System.out.println(LoginServlet.user.getId());
             ResultSet set = statement.executeQuery();
             while (set.next()){
@@ -201,5 +201,28 @@ public class TeacherService implements ITeacherService{
             throwables.printStackTrace();
         }
         return student;
+    }
+
+    @Override
+    public List<DiaryClass> findDiaryByIdTeacher(int id_teacher, int id_class) {
+        List<DiaryClass> diaryClassList = new ArrayList<>();
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement("select * from diary_class where teacher_id = ? and class_id = ?");
+            statement.setInt(1,id_teacher);
+            statement.setInt(2,id_class);
+
+            ResultSet set = statement.executeQuery();
+            while (set.next()){
+                String diary = set.getString("diary");
+                Date date = set.getDate("date");
+                DiaryClass diaryClass = new DiaryClass(date,diary);
+                diaryClassList.add(diaryClass);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return diaryClassList;
     }
 }

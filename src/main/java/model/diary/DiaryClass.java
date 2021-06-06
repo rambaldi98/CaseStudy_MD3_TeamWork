@@ -42,6 +42,11 @@ public class DiaryClass {
         this.diary = diary;
     }
 
+    public DiaryClass(Date date, String diary) {
+        this.date = date;
+        this.diary = diary;
+    }
+
 
     public int getId() {
         return id;

@@ -10,7 +10,7 @@ import model.user.User;
 import java.util.List;
 
 public interface ITeacherService {
-    List<DiaryClass> findAllClassByTeacher();
+    List<DiaryClass> findAllClassByTeacher(int id);
 
     List<ClassStudent> findAllStudentByClass(int id);
 
@@ -23,6 +23,8 @@ public interface ITeacherService {
     Class findClassById(int id);
     
     User findStudentById(int id);
+
+    List<DiaryClass> findDiaryByIdTeacher(int id_teacher, int id_class);
 
 
 

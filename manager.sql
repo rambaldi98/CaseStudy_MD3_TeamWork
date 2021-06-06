@@ -89,3 +89,5 @@ create table point(
     foreign key minister (minister_id) references user(id),
     foreign key subject (subject_id) references subject(id)
 );
+alter table status_student
+add foreign key status_id (status_id) references status(id);

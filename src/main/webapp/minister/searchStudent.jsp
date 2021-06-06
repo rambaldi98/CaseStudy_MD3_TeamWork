@@ -25,14 +25,11 @@
 </h4>
 <form action="" method="post">
 <table>
-
         <tr><td>Nhập tên cho học sinh cần thay đổi:</td>
             <td></td>
         </tr>
         <tr><td><input type="text" name="name"></td></tr>
-
     <tr>
-
         <td><input type="submit" value="Tìm kiếm"></td>
     </tr>
 </table>

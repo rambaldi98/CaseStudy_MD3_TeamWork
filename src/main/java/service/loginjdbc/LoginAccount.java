@@ -14,8 +14,12 @@ import java.util.Date;
 public class LoginAccount {
 
     public static final String SELECT_CHECK_USER_ROLE = "select email,password,r.name as role_name from user join role r on r.id = user.role_id where email = ? and password =?";
+
     public static final String SELECT_CHECK_USER_LOGIN = "select u.id, u.name as name, u.email as email, u.password as password, u.phone as phone , u.dateofbirth as dateofbirth," +
             "u.address as address , r.name as role, g.name as gender from user u join gender g on u.gender_id = g.id join role r on u.role_id = r.id where email = ? and password = ?;";
+
+//    public static final String SELECT_CHECK_USER_LOGIN = "select u.name as name, u.email as email, u.password as password, u.phone as phone , u.dateofbirth as dateofbirth,u.address as address , r.name as role, g.name as gender from user u join gender g on u.gender_id = g.id join role r on u.role_id = r.id where email = ? and password = ?;";
+
     Connection connection = ConnectJDBC.getConnection();
 
 
@@ -31,6 +35,7 @@ public class LoginAccount {
             ResultSet set = statement.executeQuery();
 
             if (set.next()){
+
                 int id = set.getInt("id");
                 String user_name = set.getString("name");
                 String email = set.getString("email");
@@ -49,7 +54,9 @@ public class LoginAccount {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
         return user;
+
     }
 
 
