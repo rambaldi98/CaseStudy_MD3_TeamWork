@@ -33,10 +33,14 @@ public class Student {
         this.student = user;
     }
 
-//    public Student(User user, Gender gender1, Status status1) {
-//        this.student = user;
-//        this.
-//    }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", student=" + student +
+                ", status=" + status +
+                '}';
+    }
 
     public int getId() {
         return id;
