@@ -38,7 +38,6 @@
             </td>
         </tr>
         <tr>
-            <td></td>
             <td><input type="submit" value="Thay đổi"></td>
         </tr>
     </table>
