@@ -81,7 +81,6 @@
         </tr>
     </table>
 </form>
-</c:if>
 
 </body>
 </html>

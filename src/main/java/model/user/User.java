@@ -67,14 +67,26 @@ public class User {
         this.role = role;
     }
 
+    public User(String name_teacher) {
+        this.name = name_teacher;
+    }
 
-    public User(int id, String name, String email, String address, Gender gender) {
+    public User(int id_student, String name_student) {
+        this.id = id_student;
+        this.name = name_student;
+    }
+
+    public User(int id, String name, String email, String address, Gender gender1) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;
-        this.gender = gender;
+        this.gender = gender1;
     }
+
+
+
+
 
     public int getId() {
         return id;

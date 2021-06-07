@@ -73,13 +73,7 @@
 
 
 
-<%--<h2><a href="/admin?action=listUser">Danh sách</a></h2>--%>
 
-
-<%--<h2><a href="/admin?action=createUser">Them moi</a></h2>--%>
-
-
-<%--<h2><a href="/admin?action=createSubject">Thêm môn học mới</a></h2>--%>
 
 
 <div class="wrapper col3" >
@@ -197,4 +191,3 @@
 </div>
 </body>
 </html>
-

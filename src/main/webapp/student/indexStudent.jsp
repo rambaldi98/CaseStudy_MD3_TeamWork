@@ -11,6 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hello Student</h1>
+<h1>Hello ${user.getName()}</h1>
+
+<h2><a href="/student?action=viewPoint">Xem điểm</a></h2>
+
+<h2><a href="/student?action=viewStatus">Xem trạng thái</a></h2>
+
 </body>
 </html>
