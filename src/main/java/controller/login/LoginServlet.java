@@ -84,7 +84,6 @@ public class LoginServlet extends HttpServlet {
 
         else {
             dispatcher = request.getRequestDispatcher(LOGIN_LOGIN_ACCOUNT_JSP);
-//            request.setAttribute("notification", "account or password you entered is incorrect. ");
             request.setAttribute("notification", ACCOUNT_INCORRECT);
         }
         dispatcher.forward(request, response);

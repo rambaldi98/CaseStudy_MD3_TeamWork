@@ -1,6 +1,7 @@
 package controller.minister;
 
 import controller.login.LoginServlet;
+import model.point.Point;
 import model.student.Status;
 import model.student.Student;
 import model.user.User;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "MinisterServlet", urlPatterns = "/minister")
 public class MinisterServlet extends HttpServlet {
@@ -54,7 +56,44 @@ public class MinisterServlet extends HttpServlet {
             case "changeStatus":
                 showFormChangeStatus(request,response);
                 break;
+            case "listStudent":
+                showListStudent(request,response);
+                break;
+
+            case "viewPoint":
+                showPoint(request,response);
+                break;
+
+            case "updatePoint":
+                showFormUpdatePoint(request,response);
+                break;
+
         }
+    }
+
+    private void showFormUpdatePoint(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Point point = this.ministerService.viewPointByIdSubject(id);
+        request.setAttribute("point", point);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("minister/updatePoint.jsp");
+        dispatcher.forward(request,response);
+
+    }
+
+    private void showPoint(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        List<Point> pointList = this.ministerService.viewAllPoint(id);
+        request.setAttribute("pointList", pointList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("minister/viewPoint.jsp");
+        dispatcher.forward(request,response);
+
+    }
+
+    private void showListStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Student> studentList = this.ministerService.findAllStudent();
+        request.setAttribute("studentList",studentList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("minister/listStudent.jsp");
+        dispatcher.forward(request,response);
     }
 
     private void showFormChangeStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -83,8 +122,28 @@ public class MinisterServlet extends HttpServlet {
                 changeStatus(request,response);
                 break;
 
+            case "updatePoint":
+                updatePoint(request,response);
+                break;
+
+
+
         }
     }
+
+    private void updatePoint(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        float points = Float.parseFloat(request.getParameter("point"));
+        Point point = new Point(points);
+        System.out.println(point);
+        this.ministerService.updatePointById(id,point);
+        request.setAttribute("notification","thay doi thanh cong");
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("minister/listStudent.jsp");
+        dispatcher.forward(request,response);
+
+    }
+
 
     private void changeStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -92,7 +151,7 @@ public class MinisterServlet extends HttpServlet {
         Status status = this.ministerService.findStatusById(id_status);
 
         this.ministerService.changeStatus(id,status, request);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("minister/changeStatus.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("minister/listStudent.jsp");
         request.setAttribute("notification", "thay doi thanh cong");
         dispatcher.forward(request,response);
     }

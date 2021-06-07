@@ -33,6 +33,17 @@ public class Point {
         this.point = point;
     }
 
+    public Point(float points) {
+        this.point = points;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "point=" + point +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

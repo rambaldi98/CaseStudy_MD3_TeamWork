@@ -84,8 +84,13 @@ public class User {
         this.gender = gender1;
     }
 
-
-
+    public User(int id, String name, String email, String phone, String address) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
 
 
     public int getId() {

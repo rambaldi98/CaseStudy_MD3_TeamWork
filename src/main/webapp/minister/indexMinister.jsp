@@ -83,17 +83,17 @@
                 <%--                    <li class="last"><a href="#">Suspendisse</a></li>--%>
                 <%--                </ul>--%>
             </li>
-            <li><a href="/minister?action=searchStudent">Change Status</a>
+<%--            <li><a href="/minister?action=searchStudent">Change Status</a>--%>
 
             </li>
-            <li><a href="/">List Student</a>
+<%--            <li><a href="/">List Student</a>--%>
                 <%--                <ul>--%>
                 <%--                    <li><a href="#">Lorem ipsum dolor</a></li>--%>
                 <%--                    <li><a href="#">Suspendisse in neque</a></li>--%>
                 <%--                    <li class="last"><a href="#">Praesent et eros</a></li>--%>
                 <%--                </ul>--%>
             </li>
-            <%--            <li><a href="/admin?action=createSubject"></a></li>--%>
+                        <li><a href="/minister?action=listStudent">List Student</a></li>
             <li class="last"><a href="#"></a></li>
         </ul>
     </div>

@@ -195,7 +195,17 @@ set status_id = 3
 where student_id = 12;
 
 
-select * from diary_class where teacher_id = 4 and class_id = 1
+select * from diary_class where teacher_id = 4 and class_id = 1;
 
+use manager_teaching_center;
+
+select *,status from user
+join status_student ss on user.id = ss.student_id
+join status s on s.id = ss.status_id
+where role_id = 4;
+
+select s.id as sub_id, s.name as subject_name,point from point
+                    join subject s on s.id = point.subject_id
+where student_id = 11;
 
 
