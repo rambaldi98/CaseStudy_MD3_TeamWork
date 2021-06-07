@@ -18,6 +18,10 @@ public class Student {
         this.status = status;
     }
 
+    public Student(Status status) {
+        this.status = status;
+    }
+
     public Student() {
     }
 

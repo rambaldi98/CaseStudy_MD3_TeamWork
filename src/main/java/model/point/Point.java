@@ -28,6 +28,11 @@ public class Point {
         this.point = point;
     }
 
+    public Point(Subject subject, float point) {
+        this.subject = subject;
+        this.point = point;
+    }
+
     public int getId() {
         return id;
     }
